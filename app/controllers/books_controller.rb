@@ -1,10 +1,11 @@
 class BooksController < ApplicationController
       before_action :authenticate_user!
-      before_action :baria_user, only: [:edit, :update, :destoy]
+      before_action :baria_user,{only: [:edit,:update,:destroy]}
   def show
   	@book = Book.find(params[:id])
     @books = Book.new
     @book_comment = BookComment.new
+    @favorite = Favorite.new
   end
 
   def index
