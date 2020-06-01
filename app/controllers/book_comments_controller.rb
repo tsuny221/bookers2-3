@@ -4,7 +4,9 @@ class BookCommentsController < ApplicationController
 		comment = current_user.book_comments.new(book_comment_params)
 		comment.book_id = book.id
 		if comment.save
-		redirect_to book_path(book)
+			redirect_to book_path(book)
+		else
+			redirect_to book_path(book)
 	end
 end
 
